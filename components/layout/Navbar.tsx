@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
-import { businessInfo } from '@/lib/content';
+import { businessInfo, contactInfo } from '@/lib/content';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -118,10 +118,10 @@ export const Navbar: React.FC = () => {
                   />
                 </svg>
                 <a 
-                  href={`tel:${businessInfo.phone}`}
+                  href={`tel:${contactInfo.phone}`}
                   className="text-sm font-medium hover:text-accent transition-colors duration-300"
                 >
-                  {businessInfo.phone}
+                  {contactInfo.phone}
                 </a>
               </div>
 
@@ -237,7 +237,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile Menu Footer */}
           <div className="p-4 border-t border-white/10 space-y-4 bg-dark/50">
             <a 
-              href={`tel:${businessInfo.phone}`}
+              href={`tel:${contactInfo.phone}`}
               className="flex items-center justify-center gap-3 p-4 rounded-lg bg-white/5 text-text-light hover:bg-white/10 hover:text-white transition-all duration-300"
             >
               <svg 
@@ -253,7 +253,7 @@ export const Navbar: React.FC = () => {
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" 
                 />
               </svg>
-              <span className="font-medium">{businessInfo.phone}</span>
+              <span className="font-medium">{contactInfo.phone}</span>
             </a>
             <Button 
               href="/contact" 
