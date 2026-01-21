@@ -43,6 +43,14 @@ export interface ProcessStep {
   description: string;
 }
 
+export interface FacebookReel {
+  id: number;
+  title: string;
+  description: string;
+  embedUrl: string;
+  thumbnail?: string;
+}
+
 // Services Data
 export const services: Service[] = [
   {
@@ -386,6 +394,30 @@ export const contactInfo = {
   hours: 'Mon–Fri: 8 AM – 5 PM',
   hoursNote: 'Typical hours - call ahead to confirm',
 };
+
+// Facebook Reels Data
+// To add more reels: Go to your Facebook reel → Click "..." → "Embed" → Copy the iframe src URL
+export const facebookReels: FacebookReel[] = [
+  {
+    id: 1,
+    title: 'Boat Interior Transformation',
+    description: 'Watch the complete transformation of this boat interior',
+    embedUrl: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FToysServicesUpholstery%2Fvideos%2FYOUR_VIDEO_ID_1%2F',
+  },
+  {
+    id: 2,
+    title: 'Custom Upholstery Work',
+    description: 'Behind the scenes of our custom upholstery process',
+    embedUrl: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FToysServicesUpholstery%2Fvideos%2FYOUR_VIDEO_ID_2%2F',
+  },
+  {
+    id: 3,
+    title: 'Marine Flooring Installation',
+    description: 'See how we install custom marine flooring',
+    embedUrl: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FToysServicesUpholstery%2Fvideos%2FYOUR_VIDEO_ID_3%2F',
+  },
+  // Add more reels here following the same format
+];
 
 // Business Information
 export const businessInfo = {

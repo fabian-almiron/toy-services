@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container } from '@/components/ui/Container';
 import { GalleryGrid } from '@/components/GalleryGrid';
-import { galleryItems } from '@/lib/content';
+import { FacebookReelsSection } from '@/components/FacebookReelsSection';
+import { galleryItems, facebookReels } from '@/lib/content';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -31,6 +32,13 @@ export default function GalleryPage() {
       <section className="py-20">
         <Container>
           <GalleryGrid items={galleryItems} />
+        </Container>
+      </section>
+
+      {/* Facebook Reels Section */}
+      <section className="py-20 bg-gray-50">
+        <Container>
+          <FacebookReelsSection reels={facebookReels} />
         </Container>
       </section>
 
