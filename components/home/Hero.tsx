@@ -8,126 +8,117 @@ import { contactInfo } from '@/lib/content';
 export const Hero: React.FC = () => {
   return (
     <section className="relative bg-dark text-white py-24 md:py-32 overflow-hidden">
-      {/* Animated Geometry Background */}
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/black-interior-slide.jpg)' }}
+      />
+      
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/85" />
+      
+      {/* Animated Geometric Pattern */}
       <div className="absolute inset-0">
-        {/* Gradient Base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark to-primary-dark"></div>
-        
-        {/* Animated Lines Layer 1 */}
-        <div className="geo-lines lines-1"></div>
-        
-        {/* Animated Lines Layer 2 */}
-        <div className="geo-lines lines-2"></div>
-        
-        {/* Animated Grid Overlay */}
-        <div className="geo-grid"></div>
-        
-        {/* Glow Effect */}
-        <div className="geo-glow"></div>
+        <div className="geo-pattern pattern-1"></div>
+        <div className="geo-pattern pattern-2"></div>
       </div>
 
       <style jsx>{`
-        /* Animated Diagonal Lines - Layer 1 */
-        .geo-lines {
+        /* Geometric Pattern Animations */
+        .geo-pattern {
           position: absolute;
           inset: 0;
-          opacity: 0.15;
+          opacity: 0.08;
         }
 
-        .lines-1 {
+        .pattern-1 {
           background-image: 
             repeating-linear-gradient(
               45deg,
               transparent,
-              transparent 100px,
-              rgba(59, 130, 246, 0.1) 100px,
-              rgba(59, 130, 246, 0.1) 101px
-            );
-          animation: lineSlide1 20s linear infinite;
-        }
-
-        .lines-2 {
-          background-image: 
+              transparent 80px,
+              rgba(255, 255, 255, 0.15) 80px,
+              rgba(255, 255, 255, 0.15) 82px,
+              transparent 82px,
+              transparent 160px,
+              rgba(255, 255, 255, 0.08) 160px,
+              rgba(255, 255, 255, 0.08) 240px
+            ),
             repeating-linear-gradient(
               -45deg,
               transparent,
               transparent 80px,
-              rgba(96, 165, 250, 0.08) 80px,
-              rgba(96, 165, 250, 0.08) 81px
+              rgba(255, 255, 255, 0.1) 80px,
+              rgba(255, 255, 255, 0.1) 82px
             );
-          animation: lineSlide2 15s linear infinite;
+          animation: patternFlow1 25s ease-in-out infinite;
         }
 
-        @keyframes lineSlide1 {
-          0% {
-            transform: translateX(0) translateY(0);
-          }
-          100% {
-            transform: translateX(141px) translateY(141px);
-          }
-        }
-
-        @keyframes lineSlide2 {
-          0% {
-            transform: translateX(0) translateY(0);
-          }
-          100% {
-            transform: translateX(-113px) translateY(113px);
-          }
-        }
-
-        /* Animated Grid */
-        .geo-grid {
-          position: absolute;
-          inset: 0;
+        .pattern-2 {
           background-image: 
-            linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
-          background-size: 60px 60px;
-          animation: gridMove 25s linear infinite;
-          opacity: 0.6;
+            repeating-linear-gradient(
+              90deg,
+              transparent,
+              transparent 100px,
+              rgba(255, 255, 255, 0.05) 100px,
+              rgba(255, 255, 255, 0.05) 101px
+            ),
+            repeating-linear-gradient(
+              0deg,
+              transparent,
+              transparent 100px,
+              rgba(255, 255, 255, 0.05) 100px,
+              rgba(255, 255, 255, 0.05) 101px
+            );
+          animation: patternFlow2 20s ease-in-out infinite;
         }
 
-        @keyframes gridMove {
+        @keyframes patternFlow1 {
           0% {
-            transform: translate(0, 0);
+            transform: translate(0, 0) rotate(0deg);
+            opacity: 0.08;
           }
-          100% {
-            transform: translate(60px, 60px);
-          }
-        }
-
-        /* Subtle Glow Effect */
-        .geo-glow {
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(
-            circle at 30% 50%,
-            rgba(59, 130, 246, 0.08) 0%,
-            transparent 50%
-          );
-          animation: glowPulse 8s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-          0%, 100% {
-            opacity: 0.5;
-            transform: scale(1);
+          25% {
+            transform: translate(50px, -30px) rotate(2deg);
+            opacity: 0.12;
           }
           50% {
-            opacity: 0.8;
-            transform: scale(1.1);
+            transform: translate(80px, 0px) rotate(0deg);
+            opacity: 0.08;
+          }
+          75% {
+            transform: translate(50px, 30px) rotate(-2deg);
+            opacity: 0.12;
+          }
+          100% {
+            transform: translate(0, 0) rotate(0deg);
+            opacity: 0.08;
+          }
+        }
+
+        @keyframes patternFlow2 {
+          0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0.08;
+          }
+          33% {
+            transform: translate(-40px, 40px) scale(1.05);
+            opacity: 0.1;
+          }
+          66% {
+            transform: translate(40px, -40px) scale(0.95);
+            opacity: 0.06;
+          }
+          100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0.08;
           }
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-          .geo-lines {
-            opacity: 0.1;
-          }
-          
-          .geo-grid {
-            background-size: 40px 40px;
+          .geo-pattern {
+            opacity: 0.05;
           }
         }
       `}</style>
