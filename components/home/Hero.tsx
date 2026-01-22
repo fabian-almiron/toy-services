@@ -7,15 +7,7 @@ import { contactInfo } from '@/lib/content';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative bg-dark text-white py-24 md:py-32 overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/black-interior-slide.jpg)' }}
-      />
-      
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/85" />
+    <section className="relative bg-dark text-white -mt-20 pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
       
       {/* Animated Geometric Pattern */}
       <div className="absolute inset-0">
@@ -28,7 +20,7 @@ export const Hero: React.FC = () => {
         .geo-pattern {
           position: absolute;
           inset: 0;
-          opacity: 0.08;
+          opacity: 0.2;
         }
 
         .pattern-1 {
@@ -37,19 +29,19 @@ export const Hero: React.FC = () => {
               45deg,
               transparent,
               transparent 80px,
-              rgba(255, 255, 255, 0.15) 80px,
-              rgba(255, 255, 255, 0.15) 82px,
+              rgba(255, 255, 255, 0.3) 80px,
+              rgba(255, 255, 255, 0.3) 82px,
               transparent 82px,
               transparent 160px,
-              rgba(255, 255, 255, 0.08) 160px,
-              rgba(255, 255, 255, 0.08) 240px
+              rgba(255, 255, 255, 0.15) 160px,
+              rgba(255, 255, 255, 0.15) 240px
             ),
             repeating-linear-gradient(
               -45deg,
               transparent,
               transparent 80px,
-              rgba(255, 255, 255, 0.1) 80px,
-              rgba(255, 255, 255, 0.1) 82px
+              rgba(255, 255, 255, 0.2) 80px,
+              rgba(255, 255, 255, 0.2) 82px
             );
           animation: patternFlow1 25s ease-in-out infinite;
         }
@@ -60,15 +52,15 @@ export const Hero: React.FC = () => {
               90deg,
               transparent,
               transparent 100px,
-              rgba(255, 255, 255, 0.05) 100px,
-              rgba(255, 255, 255, 0.05) 101px
+              rgba(255, 255, 255, 0.15) 100px,
+              rgba(255, 255, 255, 0.15) 101px
             ),
             repeating-linear-gradient(
               0deg,
               transparent,
               transparent 100px,
-              rgba(255, 255, 255, 0.05) 100px,
-              rgba(255, 255, 255, 0.05) 101px
+              rgba(255, 255, 255, 0.15) 100px,
+              rgba(255, 255, 255, 0.15) 101px
             );
           animation: patternFlow2 20s ease-in-out infinite;
         }
@@ -76,49 +68,49 @@ export const Hero: React.FC = () => {
         @keyframes patternFlow1 {
           0% {
             transform: translate(0, 0) rotate(0deg);
-            opacity: 0.08;
+            opacity: 0.2;
           }
           25% {
             transform: translate(50px, -30px) rotate(2deg);
-            opacity: 0.12;
+            opacity: 0.25;
           }
           50% {
             transform: translate(80px, 0px) rotate(0deg);
-            opacity: 0.08;
+            opacity: 0.2;
           }
           75% {
             transform: translate(50px, 30px) rotate(-2deg);
-            opacity: 0.12;
+            opacity: 0.25;
           }
           100% {
             transform: translate(0, 0) rotate(0deg);
-            opacity: 0.08;
+            opacity: 0.2;
           }
         }
 
         @keyframes patternFlow2 {
           0% {
             transform: translate(0, 0) scale(1);
-            opacity: 0.08;
+            opacity: 0.2;
           }
           33% {
             transform: translate(-40px, 40px) scale(1.05);
-            opacity: 0.1;
+            opacity: 0.25;
           }
           66% {
             transform: translate(40px, -40px) scale(0.95);
-            opacity: 0.06;
+            opacity: 0.15;
           }
           100% {
             transform: translate(0, 0) scale(1);
-            opacity: 0.08;
+            opacity: 0.2;
           }
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
           .geo-pattern {
-            opacity: 0.05;
+            opacity: 0.15;
           }
         }
       `}</style>
