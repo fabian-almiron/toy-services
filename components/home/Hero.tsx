@@ -9,108 +9,89 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative bg-dark text-white -mt-20 pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
       
-      {/* Animated Geometric Pattern */}
-      <div className="absolute inset-0">
-        <div className="geo-pattern pattern-1"></div>
-        <div className="geo-pattern pattern-2"></div>
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-lighter to-dark"></div>
+      
+      {/* Animated Stitching Lines */}
+      <div className="absolute inset-0 pointer-events-none">
+        <svg className="stitch-svg" width="100%" height="100%">
+          <defs>
+            <pattern id="stitch1" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="50" x2="200" y2="50" className="stitch-line stitch-line-1" />
+              <line x1="0" y1="150" x2="200" y2="150" className="stitch-line stitch-line-2" />
+            </pattern>
+            <pattern id="stitch2" x="0" y="0" width="250" height="250" patternUnits="userSpaceOnUse">
+              <line x1="50" y1="0" x2="50" y2="250" className="stitch-line stitch-line-3" />
+              <line x1="180" y1="0" x2="180" y2="250" className="stitch-line stitch-line-4" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#stitch1)" />
+          <rect width="100%" height="100%" fill="url(#stitch2)" />
+        </svg>
       </div>
 
       <style jsx>{`
-        /* Geometric Pattern Animations */
-        .geo-pattern {
+        .stitch-svg {
           position: absolute;
           inset: 0;
-          opacity: 0.2;
+          opacity: 0.15;
         }
 
-        .pattern-1 {
-          background-image: 
-            repeating-linear-gradient(
-              45deg,
-              transparent,
-              transparent 80px,
-              rgba(255, 255, 255, 0.3) 80px,
-              rgba(255, 255, 255, 0.3) 82px,
-              transparent 82px,
-              transparent 160px,
-              rgba(255, 255, 255, 0.15) 160px,
-              rgba(255, 255, 255, 0.15) 240px
-            ),
-            repeating-linear-gradient(
-              -45deg,
-              transparent,
-              transparent 80px,
-              rgba(255, 255, 255, 0.2) 80px,
-              rgba(255, 255, 255, 0.2) 82px
-            );
-          animation: patternFlow1 25s ease-in-out infinite;
+        .stitch-line {
+          stroke: rgba(255, 255, 255, 0.4);
+          stroke-width: 2;
+          stroke-linecap: round;
+          fill: none;
         }
 
-        .pattern-2 {
-          background-image: 
-            repeating-linear-gradient(
-              90deg,
-              transparent,
-              transparent 100px,
-              rgba(255, 255, 255, 0.15) 100px,
-              rgba(255, 255, 255, 0.15) 101px
-            ),
-            repeating-linear-gradient(
-              0deg,
-              transparent,
-              transparent 100px,
-              rgba(255, 255, 255, 0.15) 100px,
-              rgba(255, 255, 255, 0.15) 101px
-            );
-          animation: patternFlow2 20s ease-in-out infinite;
+        .stitch-line-1 {
+          stroke-dasharray: 15 20;
+          animation: stitchDash1 25s linear infinite;
         }
 
-        @keyframes patternFlow1 {
-          0% {
-            transform: translate(0, 0) rotate(0deg);
-            opacity: 0.2;
-          }
-          25% {
-            transform: translate(50px, -30px) rotate(2deg);
-            opacity: 0.25;
-          }
-          50% {
-            transform: translate(80px, 0px) rotate(0deg);
-            opacity: 0.2;
-          }
-          75% {
-            transform: translate(50px, 30px) rotate(-2deg);
-            opacity: 0.25;
-          }
-          100% {
-            transform: translate(0, 0) rotate(0deg);
-            opacity: 0.2;
+        .stitch-line-2 {
+          stroke-dasharray: 12 25;
+          animation: stitchDash2 30s linear infinite;
+        }
+
+        .stitch-line-3 {
+          stroke-dasharray: 18 22;
+          animation: stitchDash3 28s linear infinite;
+        }
+
+        .stitch-line-4 {
+          stroke-dasharray: 10 30;
+          animation: stitchDash4 32s linear infinite;
+        }
+
+        @keyframes stitchDash1 {
+          to {
+            stroke-dashoffset: -200;
           }
         }
 
-        @keyframes patternFlow2 {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.2;
+        @keyframes stitchDash2 {
+          to {
+            stroke-dashoffset: -200;
           }
-          33% {
-            transform: translate(-40px, 40px) scale(1.05);
-            opacity: 0.25;
+        }
+
+        @keyframes stitchDash3 {
+          to {
+            stroke-dashoffset: -250;
           }
-          66% {
-            transform: translate(40px, -40px) scale(0.95);
-            opacity: 0.15;
-          }
-          100% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.2;
+        }
+
+        @keyframes stitchDash4 {
+          to {
+            stroke-dashoffset: -250;
           }
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-          .geo-pattern {
-            opacity: 0.15;
+          .stitch-svg {
+            opacity: 0.1;
           }
         }
       `}</style>

@@ -27,9 +27,9 @@ export const Button: React.FC<ButtonProps> = ({
   const baseClasses = 'relative inline-flex items-center justify-center font-semibold rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-xl overflow-hidden group';
   
   const variantClasses = {
-    primary: 'bg-gradient-to-br from-white/20 to-white/10 text-white hover:from-white/30 hover:to-white/20 focus:ring-white/50 border border-white/30 shadow-lg shadow-white/10 hover:shadow-white/20 hover:border-white/40',
-    secondary: 'bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-white/20 hover:to-white/10 focus:ring-white/50 border border-white/20 shadow-lg shadow-black/20 hover:shadow-black/30 hover:border-white/30',
-    accent: 'bg-gradient-to-br from-accent/80 to-accent/60 text-white hover:from-accent/90 hover:to-accent/70 focus:ring-accent/50 border border-accent-light/40 shadow-xl shadow-accent/30 hover:shadow-accent/50 hover:border-accent-light/60',
+    primary: 'bg-gradient-to-br from-white/20 to-white/10 text-white hover:from-white/30 hover:to-white/20 focus:ring-white/50 border border-white/30 hover:border-white/40',
+    secondary: 'bg-gradient-to-br from-white/10 to-white/5 text-white hover:from-white/20 hover:to-white/10 focus:ring-white/50 border border-white/20 hover:border-white/30',
+    accent: 'bg-gradient-to-br from-accent/80 to-accent/60 text-white hover:from-accent/90 hover:to-accent/70 focus:ring-accent/50 border border-accent-light/40 hover:border-accent-light/60',
   };
   
   const sizeClasses = {
